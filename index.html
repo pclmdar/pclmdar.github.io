@@ -1,0 +1,30 @@
+<html>
+
+<head>
+   <title>AR</title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+   <script src="./js/aframe.min.js"></script>
+   <script src="./js/aframe-ar.js"></script>
+   <script src="./js/gesture-detector.js"></script>
+   <script src="./js/gesture-handler.js"></script>
+</head>
+
+<body>
+   <a-scene arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" embedded
+      renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
+      <a-assets>
+         <a-asset-item id="char" src="./models/char/char.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-marker type="barcode" value="15" id="markerA">
+         <a-entity id="char-model" gltf-model="#char" position="0 0 0" scale="0.3 0.3 0.3" class="clickable"
+            gesture-handler>
+         </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+   </a-scene>
+</body>
+
+</html>
